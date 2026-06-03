@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Quiz - ZedPrep</title>
+<title>ZedPrep Mathematics Quiz</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><h1>ZedPrep Quiz</h1></header>
+
+<header>
+<h1>Grade 12 Mathematics Quiz</h1>
+</header>
+
 <div class="container">
+
 <div class="card">
-<h3>Sample Question</h3>
-<p>What is 2 + 2?</p>
-<p>A. 3</p>
-<p>B. 4</p>
-<p>C. 5</p>
+
+<h3>Question 1</h3>
+
+<p>Solve: 2x + 3 = 11</p>
+
+<button onclick="check('A')">A. x = 4</button><br><br>
+<button onclick="check('B')">B. x = 5</button><br><br>
+<button onclick="check('C')">C. x = 6</button>
+
+<p id="result"></p>
+
 </div>
+
 </div>
+
+<script>
+function check(answer){
+
+if(answer=="A"){
+document.getElementById("result").innerHTML="✅ Correct!";
+}
+else{
+document.getElementById("result").innerHTML="❌ Try again.";
+}
+
+}
+</script>
+
 </body>
 </html>
