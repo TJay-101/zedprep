@@ -45,3 +45,15 @@ nav a {
     text-decoration: none;
     border-radius: 6px;
 }
+nav {
+    background: #2563eb;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
