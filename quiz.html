@@ -130,7 +130,14 @@ let current = 0;
 let score = 0;
 
 function loadQuestion(){
+document.getElementById("progress").innerHTML =
+"Question " + (current + 1) + " of " + quiz.length;
 
+let progress =
+((current) / quiz.length) * 100;
+
+document.getElementById("progress-bar").style.width =
+progress + "%";
 document.getElementById("question").innerHTML = quiz[current].q;
 
 document.getElementById("a").innerHTML =
