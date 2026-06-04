@@ -109,12 +109,14 @@ else{
 message = "📚 More revision needed.";
 }
 
+let percentage = Math.round((score / quiz.length) * 100);
+
 document.querySelector(".card").innerHTML =
-"<h2>Quiz Complete!</h2>" +
+"<h2>🎉 Quiz Complete!</h2>" +
 "<h3>" + message + "</h3>" +
-"<p>Your Score: " + score +
-" / " + quiz.length + "</p>" +
-"<br><a class='button' href='quiz.html'>Try Again</a>";
+"<p><strong>Score:</strong> " + percentage + "%</p>" +
+"<p>" + score + " correct out of " + quiz.length + "</p>" +
+"<br><a class='button' href='quiz.html'>🔄 Try Again</a>";
 
 }
 
