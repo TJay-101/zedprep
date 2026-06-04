@@ -1,44 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ZedPrep Mathematics Quiz</title>
+<title>ZedPrep Algebra Quiz</title>
 <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
 <header>
-<h1>Grade 12 Mathematics Quiz</h1>
+<h1>ZedPrep Algebra Quiz</h1>
+<p>Grade 12 Mathematics</p>
 </header>
 
 <div class="container">
 
 <div class="card">
+<h2 id="question">Loading...</h2>
 
-<h3>Question 1</h3>
-
-<p>Solve: 2x + 3 = 11</p>
-
-<button onclick="check('A')">A. x = 4</button><br><br>
-<button onclick="check('B')">B. x = 5</button><br><br>
-<button onclick="check('C')">C. x = 6</button>
+<button class="button" onclick="answer(0)" id="a"></button><br><br>
+<button class="button" onclick="answer(1)" id="b"></button><br><br>
+<button class="button" onclick="answer(2)" id="c"></button>
 
 <p id="result"></p>
-
 </div>
 
 </div>
 
 <script>
-function check(answer){
 
-if(answer=="A"){
-document.getElementById("result").innerHTML="✅ Correct!";
+const quiz = [
+
+{
+q:"Solve: 2x + 3 = 11",
+options:["x = 4","x = 5","x = 6"],
+correct:0
+},
+
+{
+q:"Factorize x² + 5x + 6",
+options:["(x+2)(x+3)","(x+1)(x+6)","(x+4)(x+2)"],
+correct:0
+},
+
+{
+q:"Solve: 3x = 15",
+options:["3","4","5"],
+correct:2
+},
+
+{
+q:"What is x if x + 8 = 20?",
+options:["10","12","14"],
+correct:1
+},
+
+{
+q:"Simplify: 2a + 3a",
+options:["5a","6a","5"],
+correct:0
+}
+
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion(){
+
+document.getElementById("question").innerHTML = quiz[current].q;
+
+document.getElementById("a").innerHTML =
+quiz[current].options[0];
+
+document.getElementById("b").innerHTML =
+quiz[current].options[1];
+
+document.getElementById("c").innerHTML =
+quiz[current].options[2];
+
+}
+
+function answer(choice){
+
+if(choice === quiz[current].correct){
+score++;
+}
+
+current++;
+
+if(current < quiz.length){
+loadQuestion();
 }
 else{
-document.getElementById("result").innerHTML="❌ Try again.";
+
+document.querySelector(".card").innerHTML =
+"<h2>Quiz Complete!</h2>" +
+"<p>Your Score: " + score +
+" / " + quiz.length + "</p>";
+
 }
 
 }
+
+loadQuestion();
+
 </script>
 
 </body>
