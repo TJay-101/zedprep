@@ -1,59 +1,76 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f7ff;
-    color: #111;
+    background: #f4f7fb;
+    color: #222;
 }
 
 header {
-    background: #1e3a8a;
+    background: linear-gradient(135deg,#1e3a8a,#2563eb);
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
 }
 
 nav {
-    background: #2563eb;
-    padding: 10px;
+    background: white;
     text-align: center;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 nav a {
-    color: white;
-    margin: 10px;
     text-decoration: none;
+    color: #1e3a8a;
     font-weight: bold;
+    margin: 0 10px;
 }
 
 .container {
+    max-width: 900px;
+    margin: auto;
     padding: 20px;
 }
 
 .card {
     background: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
 .button {
     display: inline-block;
-    padding: 10px 15px;
     background: #2563eb;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-}
-nav {
-    background: #2563eb;
-    padding: 10px;
-    text-align: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    font-weight: bold;
+.button:hover {
+    opacity: 0.9;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
