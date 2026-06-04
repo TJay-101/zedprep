@@ -94,10 +94,27 @@ loadQuestion();
 }
 else{
 
+let message = "";
+
+if(score === quiz.length){
+message = "🏆 Excellent! Perfect score!";
+}
+else if(score >= 4){
+message = "🔥 Great job! You're exam ready.";
+}
+else if(score >= 3){
+message = "👍 Good work. Keep practicing.";
+}
+else{
+message = "📚 More revision needed.";
+}
+
 document.querySelector(".card").innerHTML =
 "<h2>Quiz Complete!</h2>" +
+"<h3>" + message + "</h3>" +
 "<p>Your Score: " + score +
-" / " + quiz.length + "</p>";
+" / " + quiz.length + "</p>" +
+"<br><a class='button' href='quiz.html'>Try Again</a>";
 
 }
 
