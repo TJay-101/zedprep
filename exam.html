@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZedPrep Exam Mode</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header>
+<h1>📝 Grade 12 Mathematics Mock Exam</h1>
+<p>Exam Mode</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2 id="timer">Time Left: 30:00</h2>
+
+<p id="progress"></p>
+
+<h2 id="question">Loading...</h2>
+
+<button class="button" onclick="answer(0)" id="a"></button><br><br>
+<button class="button" onclick="answer(1)" id="b"></button><br><br>
+<button class="button" onclick="answer(2)" id="c"></button>
+
+</div>
+
+</div>
+
+<script>
+
+const exam = [
+
+{
+q:"Solve: 2x + 3 = 11",
+options:["x = 4","x = 5","x = 6"],
+correct:0
+},
+
+{
+q:"Factorize x² + 5x + 6",
+options:["(x+2)(x+3)","(x+1)(x+6)","(x+4)(x+2)"],
+correct:0
+},
+
+{
+q:"Solve: 3x = 15",
+options:["3","4","5"],
+correct:2
+},
+
+{
+q:"What is x if x + 8 = 20?",
+options:["10","12","14"],
+correct:1
+},
+
+{
+q:"Simplify: 2a + 3a",
+options:["5a","6a","5"],
+correct:0
+}
+
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion(){
+
+document.getElementById("progress").innerHTML =
+"Question " + (current + 1) + " of " + exam.length;
+
+document.getElementById("question").innerHTML =
+exam[current].q;
+
+document.getElementById("a").innerHTML =
+exam[current].options[0];
+
+document.getElementById("b").innerHTML =
+exam[current].options[1];
+
+document.getElementById("c").innerHTML =
+exam[current].options[2];
+
+}
+
+function answer(choice){
+
+if(choice === exam[current].correct){
+score++;
+}
+
+current++;
+
+if(current < exam.length){
+loadQuestion();
+}
+else{
+finishExam();
+}
+
+}
+
+function finishExam(){
+
+let percentage =
+Math.round((score/exam.length)*100);
+
+document.querySelector(".card").innerHTML =
+"<h2>🏁 Exam Finished</h2>" +
+"<h3>Score: " + percentage + "%</h3>" +
+"<p>" + score + " correct out of " +
+exam.length + "</p>" +
+"<a class='button' href='exam.html'>Retake Exam</a>";
+
+}
+
+let timeLeft = 1800;
+
+let timer = setInterval(function(){
+
+let minutes =
+Math.floor(timeLeft / 60);
+
+let seconds =
+timeLeft % 60;
+
+if(seconds < 10){
+seconds = "0" + seconds;
+}
+
+document.getElementById("timer").innerHTML =
+"Time Left: " + minutes + ":" + seconds;
+
+timeLeft--;
+
+if(timeLeft < 0){
+
+clearInterval(timer);
+
+finishExam();
+
+}
+
+},1000);
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
